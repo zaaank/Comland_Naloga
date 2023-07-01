@@ -3,18 +3,10 @@ using Task = ToDoApp.Data.Entities.Task;
 
 namespace ToDoApp.Bl
 {
+    /// <summary>
+    /// Implement if needed
+    /// </summary>
     public class TaskBusinessLogic
     {
-        private readonly ITaskRepository _taskRepository;
-
-        public TaskBusinessLogic(ITaskRepository taskRepository)
-        {
-            _taskRepository = taskRepository;
-        }
-
-        Task<List<Task>> GetAllAsync()
-        {
-            return _taskRepository.GetAllAsync();
-        }
     }
 }

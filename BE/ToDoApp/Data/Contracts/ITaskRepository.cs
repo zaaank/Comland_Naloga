@@ -2,6 +2,9 @@
 
 namespace ToDoApp.Data.Contracts
 {
+    /// <summary>
+    /// Task repository - Add calls if needed
+    /// </summary>
     public interface ITaskRepository : IGenericRepository<Task_>
     {
     }

@@ -21,6 +21,10 @@ namespace ToDoApp.WebUI.Controllers
             this._mapper = mapper;
         }
 
+        /// <summary>
+        /// Get list of all available tasks
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TaskDetailsDto>>> GetTasks()
         {
@@ -29,6 +33,11 @@ namespace ToDoApp.WebUI.Controllers
             return Ok(mapped);
         }
 
+        /// <summary>
+        /// Get task by ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<TaskDetailsDto>> GetTask(int id)
         {
@@ -45,6 +54,11 @@ namespace ToDoApp.WebUI.Controllers
             return Ok(taskDetailsDto);
         }
 
+        /// <summary>
+        /// Post a new task
+        /// </summary>
+        /// <param name="createTaskDto"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<object>> PostTask(PostTaskDto createTaskDto)
         {
@@ -58,6 +72,12 @@ namespace ToDoApp.WebUI.Controllers
             return CreatedAtAction("GetTask", new { id = added.Id }, added);
         }
 
+        /// <summary>
+        /// Override already existing task
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="updateTaskDto"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTask(int id, TaskDetailsDto updateTaskDto)
         {
@@ -93,6 +113,11 @@ namespace ToDoApp.WebUI.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Delete task by ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTask(int id)
         {

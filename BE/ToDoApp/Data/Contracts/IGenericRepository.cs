@@ -1,5 +1,9 @@
 ﻿namespace ToDoApp.Data.Contracts
 {
+    /// <summary>
+    /// Generic repository for managing simple CRUD operations
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public interface IGenericRepository<T> where T : class
     {
         Task<T?> GetAsync(int? id);
