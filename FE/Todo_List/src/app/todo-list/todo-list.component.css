@@ -1,0 +1,17 @@
+.action-column {
+  width: 250px !important;
+  max-width: 250px;
+}
+
+.status-column{
+  width: 100px;
+}
+
+.smallest-width {
+  width: 1px;
+  white-space: nowrap;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}

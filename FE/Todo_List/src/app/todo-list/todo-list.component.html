@@ -1,3 +1,42 @@
-<p>
-  todo-list works!
-</p>
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col col-md-4">
+      <input class="form-control" type="text" placeholder="Search" aria-label="Search" [(ngModel)]="searchValue">
+    </div>
+    <div class="col col-md-2">
+      <button class="btn btn-info" type="submit" (click)="filterTasks()">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+    <div class="col col-md-6 d-flex justify-content-end">
+      <button class="btn btn-primary mt-2 mb-1" (click)="addTask()">Add Task</button>
+    </div>
+  </div>
+</div>
+<table class="table table-bordered">
+  <thead class="table-secondary">
+    <tr>
+      <th class="smallest-width cursor-pointer" (click)="orderByTasks('id')">#</th>
+      <th class="cursor-pointer" (click)="orderByTasks('title')">Title</th>
+      <th class="cursor-pointer" (click)="orderByTasks('description')" >Desc</th>
+      <th class="cursor-pointer" (click)="orderByTasks('status')">Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks">
+      <td >{{ task.id }}</td>
+      <td class="title-column">{{ task.title }}</td>
+      <td class="desc-column">{{ task.description }}</td>
+      <td class="status-column">{{ taskStatusEnum[task.status] }}</td>
+      <td class="action-column" >
+        <div *ngIf="task.status === taskStatusEnum.ToDo">
+          <button class="btn btn-success me-2 mb-2" (click)="markAsDone(task)">Done</button>
+          <button class="btn btn-info me-2 mb-2" (click)="editTask(task)">Edit</button>
+          <button class="btn btn-danger me-2 mb-2" (click)="deleteTask(task)">Delete</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
